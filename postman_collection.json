@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "Injective Market Health API",
+    "_postman_id": "market-health-api-v2",
+    "description": "Real-time market health scoring and risk assessment API for Injective blockchain.\n\n## Features\n- Market health scoring\n- Liquidity analysis\n- Volatility tracking\n- Volume metrics\n- Risk assessment\n- Multi-market comparison\n\n## Base URL\n`http://localhost:8000/api/v1`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Markets",
+      "item": [
+        {
+          "name": "List All Markets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/markets",
+              "host": ["{{baseUrl}}"],
+              "path": ["markets"]
+            },
+            "description": "Get list of all available spot markets on Injective"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Market Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/markets/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["markets", "{{marketId}}"]
+            },
+            "description": "Get detailed information about a specific market"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Market Analysis",
+      "item": [
+        {
+          "name": "Get Health Score",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["health", "{{marketId}}"]
+            },
+            "description": "Get comprehensive health score for a market including factors and recommendations"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Liquidity Metrics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/liquidity/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["liquidity", "{{marketId}}"]
+            },
+            "description": "Get liquidity analysis including spread, depth, and liquidity score"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Volatility Analysis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/volatility/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["volatility", "{{marketId}}"]
+            },
+            "description": "Get volatility metrics including standard deviation and volatility level"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Volume Metrics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/volume/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["volume", "{{marketId}}"]
+            },
+            "description": "Get 24-hour trading volume statistics"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Risk Assessment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/risk/{{marketId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["risk", "{{marketId}}"]
+            },
+            "description": "Get comprehensive risk assessment with warnings and risk level"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "item": [
+        {
+          "name": "Compare Markets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/compare?markets={{marketId}},{{marketId2}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["compare"],
+              "query": [
+                {
+                  "key": "markets",
+                  "value": "{{marketId}},{{marketId2}}",
+                  "description": "Comma-separated market IDs (2-5 markets)"
+                }
+              ]
+            },
+            "description": "Compare multiple markets side-by-side with best market recommendation"
+          },
+          "response": []
+        },
+        {
+          "name": "API Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["status"]
+            },
+            "description": "Get API health status, uptime, cache statistics, and system metrics"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "marketId",
+      "value": "0x0611780ba69656949525013d947713300f56c37b6175e02f26bffa495c3208fe",
+      "type": "string",
+      "description": "Example: INJ/USDT market ID"
+    },
+    {
+      "key": "marketId2",
+      "value": "0x17ef48032cb24375ba7c2e39f384e56433bcab20cbee9a7357e4cba2eb00abe6",
+      "type": "string",
+      "description": "Example: Second market ID for comparison"
+    }
+  ]
+}

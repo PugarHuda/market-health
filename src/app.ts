@@ -1,8 +1,10 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 import { config } from './config';
 import { logger } from './utils/logger';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
+import { swaggerSpec } from './config/swagger.config';
 
 // Import routes
 import healthRoutes from './routes/health.routes';
@@ -34,6 +36,16 @@ export function createApp(): Express {
     next();
   });
 
+  // Swagger documentation
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+    customCss: '.swagger-ui .topbar { display: none }',
+    customSiteTitle: 'Injective Market Health API Docs',
+  }));
+  app.get('/api-docs.json', (_req: Request, res: Response) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+  });
+
   // API routes
   const apiPrefix = `/api/${config.apiVersion}`;
   app.use(`${apiPrefix}/health`, healthRoutes);
@@ -61,7 +73,7 @@ export function createApp(): Express {
         markets: `${apiPrefix}/markets`,
         status: `${apiPrefix}/status`,
       },
-      documentation: '/docs',
+      documentation: '/api-docs',
       timestamp: Date.now(),
     });
   });
