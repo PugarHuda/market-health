@@ -1,0 +1,15 @@
+src/routes/compare.routes.ts(11,1): error TS6133: 'NotFoundError' is declared but its value is never read.
+src/routes/compare.routes.ts(30,17): error TS7030: Not all code paths return a value.
+src/routes/health.routes.ts(14,26): error TS7030: Not all code paths return a value.
+src/routes/health.routes.ts(16,13): error TS2339: Property 'marketId' does not exist on type 'String'.
+src/routes/liquidity.routes.ts(14,26): error TS7030: Not all code paths return a value.
+src/routes/liquidity.routes.ts(16,13): error TS2339: Property 'marketId' does not exist on type 'String'.
+src/routes/markets.routes.ts(12,17): error TS7030: Not all code paths return a value.
+src/routes/markets.routes.ts(12,24): error TS6133: 'req' is declared but its value is never read.
+src/routes/markets.routes.ts(49,26): error TS7030: Not all code paths return a value.
+src/routes/risk.routes.ts(14,26): error TS7030: Not all code paths return a value.
+src/routes/risk.routes.ts(16,13): error TS2339: Property 'marketId' does not exist on type 'String'.
+src/routes/volatility.routes.ts(14,26): error TS7030: Not all code paths return a value.
+src/routes/volatility.routes.ts(16,13): error TS2339: Property 'marketId' does not exist on type 'String'.
+src/routes/volume.routes.ts(14,26): error TS7030: Not all code paths return a value.
+src/routes/volume.routes.ts(16,13): error TS2339: Property 'marketId' does not exist on type 'String'.
